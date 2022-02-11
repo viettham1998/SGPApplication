@@ -8,11 +8,13 @@ using UnityEngine.Networking;
 
 public class getDataGrid : MonoBehaviour
 {
+    //public List<GameObject> listgameobject;
     public List<GameObject> list;
     int[] heightData = new int[15];
     private bool check = false;
     void Start()
     {
+        getListGameobejct();
         ServicePointManager.ServerCertificateValidationCallback = TrustCertificate;
         StartCoroutine(GetText());
     }
@@ -102,5 +104,13 @@ public class getDataGrid : MonoBehaviour
         setColor(list[8], int.Parse(lines[20].Split(' ')[18]));
 
         check = true;
+    }
+    private void getListGameobejct()
+    {
+        
+        for(int i = 0; i < this.gameObject.transform.childCount;i++)
+        {
+            list.Add(this.gameObject.transform.GetChild(i).gameObject);
+        }
     }
 }

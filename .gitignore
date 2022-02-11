@@ -35,3 +35,11 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+*.zip
+biet thu.FBX
+biet thu.FBX.meta
+canh quan.FBX
+canh quan.FBX.meta
+cao tang.FBX
+cao tang.FBX.meta
