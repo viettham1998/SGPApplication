@@ -8,7 +8,19 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Main.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Grid.unity
     guid: 355f795d3039c4d4da342ef13c04ed10
+  - enabled: 0
+    path: Assets/Scenes/Grid_EditModel.unity
+    guid: b8b66c68201aac84e89a7888953731fd
+  - enabled: 0
+    path: Assets/Scenes/GridSplit.unity
+    guid: 2debe04bff593c240ad8706192c4e79a
+  - enabled: 0
+    path: Assets/Scenes/GridSplitMaterial.unity
+    guid: 63267449c5d2bd24eabe1161c9d669a7
+  - enabled: 1
+    path: Assets/Scenes/GridFinal.unity
+    guid: 64917abd5f4092746a825c6abcc083e6
   m_configObjects: {}
