@@ -10,6 +10,7 @@ public class getDataGridModel : MonoBehaviour
 {
     //public List<GameObject> listgameobject;
     public GameObject prefab;
+    public GameObject prefabMid;
     public List<GameObject> list;
     int[] heightData = new int[15];
     private bool check = false;
@@ -120,7 +121,11 @@ public class getDataGridModel : MonoBehaviour
         if (k == 1)
         {
             GameObject newFather = go.transform.GetChild(1).gameObject;
-            change(newFather, soTang);
+            change(newFather, soTang, prefab);
+        }else if (k == 2)
+        {
+            GameObject newFather = go.transform.GetChild(2).gameObject;
+            change(newFather, soTang, prefabMid);
         }
     }
     private void getListGameobejct()
@@ -131,7 +136,7 @@ public class getDataGridModel : MonoBehaviour
             list.Add(this.gameObject.transform.GetChild(i).gameObject);
         }
     }
-    private void change(GameObject go, int soTang)
+    private void change(GameObject go, int soTang, GameObject prefabModel)
     {
         int child = go.transform.childCount;
         if (child - 1 > soTang)
@@ -147,21 +152,29 @@ public class getDataGridModel : MonoBehaviour
             for (int i = child - 1; i < soTang; i++)
             {
                 Debug.Log("hvt2: " + go.transform.position);
-                float yValue = -0.263f + 0.1f * i;
+                float yValue = -0.263f + 0.0157f * (i-10);
                 Debug.Log("yValue: " + yValue);
                 Vector3 positionPrefab = go.transform.position + new Vector3(0f, yValue, 0f);
                 // Vector3 positionPrefab = new Vector3(go.transform.position.x, yValue, go.transform.position.z);
                 Debug.Log("go.transform.position: " + go.transform.position);
                 Debug.Log("positionPrefab: " + positionPrefab);
                 //Quaternion rotationPrefab =  Quaternion.Euler(-90f, 0f, 0f);
-                GameObject go1 = Instantiate(prefab, go.transform);
+                GameObject go1 = Instantiate(prefabModel, go.transform);
                 go1.transform.position = positionPrefab;
                // go1.GetComponent<Renderer>().material = listMaterial[k];
                 // Debug.Log(go1.transform.position);
             }
         }
-        float zValue = go.transform.GetChild(soTang).position.z;
-        Vector3 abc = new Vector3(0.8549334f, 0.6666667f, zValue);
+        //float zValue = go.transform.GetChild(soTang).position.z;
+        float zValue =0f;
+        if (soTang < 50) {
+            zValue = 0.013f * (soTang + soTang * 0.1f);
+        }else
+            zValue = 0.013f * (soTang + soTang * 0.2f);
+
+        float xValueNgoai = go.transform.GetChild(0).localScale.x;
+        float yValueNgoai = go.transform.GetChild(0).localScale.y;
+        Vector3 abc = new Vector3(xValueNgoai, yValueNgoai, zValue);
         go.transform.GetChild(0).localScale = abc;
         //go.transform.GetChild(0).localPosition = new Vector3(3.807f, zValue, 0.581f);
     }
