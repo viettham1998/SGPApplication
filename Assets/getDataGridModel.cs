@@ -152,17 +152,13 @@ public class getDataGridModel : MonoBehaviour
             for (int i = child - 1; i < soTang; i++)
             {
                 Debug.Log("hvt2: " + go.transform.position);
-                float yValue = -0.263f + 0.0157f * (i-10);
+                float yValue =  0.8f * i;
                 Debug.Log("yValue: " + yValue);
                 Vector3 positionPrefab = go.transform.position + new Vector3(0f, yValue, 0f);
-                // Vector3 positionPrefab = new Vector3(go.transform.position.x, yValue, go.transform.position.z);
                 Debug.Log("go.transform.position: " + go.transform.position);
                 Debug.Log("positionPrefab: " + positionPrefab);
-                //Quaternion rotationPrefab =  Quaternion.Euler(-90f, 0f, 0f);
                 GameObject go1 = Instantiate(prefabModel, go.transform);
                 go1.transform.position = positionPrefab;
-               // go1.GetComponent<Renderer>().material = listMaterial[k];
-                // Debug.Log(go1.transform.position);
             }
         }
         //float zValue = go.transform.GetChild(soTang).position.z;
